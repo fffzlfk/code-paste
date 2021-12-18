@@ -20,7 +20,7 @@ func CreatePaste(c *gin.Context) {
 		c.AbortWithStatus(http.StatusBadRequest)
 		return
 	}
-	p.ExpireAt = time.Now().Add(time.Hour * 12)
+	p.ExpiredAt = time.Now().AddDate(0, 0, p.ExpiredDays)
 	p.ID = generateUUID()
 	database.DB.Create(&p)
 	c.JSON(http.StatusAccepted, gin.H{
