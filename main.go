@@ -36,7 +36,9 @@ func main() {
 	var config configs
 	toml.DecodeFile("./config.toml", &config)
 
-	database.Init(config.Database.Host, config.Database.User, config.Database.Password)
+	logFile, _ := os.Create("log.txt")
+
+	database.Init(logFile, config.Database.Host, config.Database.User, config.Database.Password)
 
 	e := gin.New()
 
@@ -47,7 +49,6 @@ func main() {
 
 	e.SetTrustedProxies([]string{front})
 
-	logFile, _ := os.Create("log.txt")
 	e.Use(gin.LoggerWithWriter(logFile))
 
 	corsConfig := cors.DefaultConfig()
