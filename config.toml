@@ -2,7 +2,7 @@
 port = 8080
 
 [frontend]
-host = "47.105.55.96"
+host = "localhost"
 port = 3000
 
 [database]
