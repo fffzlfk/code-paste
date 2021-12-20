@@ -2,6 +2,7 @@ package main
 
 import (
 	"code-paste/controllers"
+	"code-paste/cron"
 	"code-paste/database"
 	"fmt"
 	"os"
@@ -39,6 +40,8 @@ func main() {
 	logFile, _ := os.Create("log.txt")
 
 	database.Init(logFile, config.Database.Host, config.Database.User, config.Database.Password)
+
+	cron.Start()
 
 	e := gin.New()
 
