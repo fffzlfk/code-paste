@@ -55,6 +55,7 @@ func main() {
 	e.Use(gin.LoggerWithWriter(logFile))
 
 	corsConfig := cors.DefaultConfig()
+    corsConfig.AllowCredentials = true
 	corsConfig.AllowOrigins = []string{front}
 	e.Use(cors.New(corsConfig))
 

@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
@@ -15,21 +15,22 @@ import (
 var DB *gorm.DB
 
 func Init(logFile *os.File, host, user, password string) {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:3306)/paste?charset=utf8mb4&parseTime=True&loc=Local",
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s",
+		host,
 		user,
 		password,
-		host,
+        "paste", 
 	)
 	newLogger := logger.New(
-		log.New(logFile, "\r\n", log.LstdFlags), // io writer
+		log.New(logFile, "\r\n", log.LstdFlags),
 		logger.Config{
-			SlowThreshold: time.Second,   // 慢 SQL 阈值
-			LogLevel:      logger.Silent, // Log level
-			Colorful:      false,         // 禁用彩色打印
+			SlowThreshold: time.Second,
+			LogLevel:      logger.Silent,
+			Colorful:      false,
 		},
 	)
 
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: newLogger,
 	})
 	if err != nil {
