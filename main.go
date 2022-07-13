@@ -43,20 +43,21 @@ func main() {
 
 	cron.Start()
 
-	e := gin.New()
+	e := gin.Default()
 
-	front := fmt.Sprintf("http://%s:%d",
-		config.Frontend.Host,
-		config.Frontend.Port,
-	)
+	// front := fmt.Sprintf("http://%s:%d",
+	// 	config.Frontend.Host,
+	// 	config.Frontend.Port,
+	// )
 
-	e.SetTrustedProxies([]string{front})
+	// e.SetTrustedProxies([]string{front})
 
 	e.Use(gin.LoggerWithWriter(logFile))
 
 	corsConfig := cors.DefaultConfig()
-    corsConfig.AllowCredentials = true
-	corsConfig.AllowOrigins = []string{front}
+	corsConfig.AllowAllOrigins = true
+	// corsConfig.AllowCredentials = true
+	// corsConfig.AllowOrigins = []string{front}
 	e.Use(cors.New(corsConfig))
 
 	e.POST("/api/create", controllers.CreatePaste)
