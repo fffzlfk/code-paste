@@ -45,19 +45,10 @@ func main() {
 
 	e := gin.Default()
 
-	// front := fmt.Sprintf("http://%s:%d",
-	// 	config.Frontend.Host,
-	// 	config.Frontend.Port,
-	// )
-
-	// e.SetTrustedProxies([]string{front})
-
 	e.Use(gin.LoggerWithWriter(logFile))
 
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true
-	// corsConfig.AllowCredentials = true
-	// corsConfig.AllowOrigins = []string{front}
 	e.Use(cors.New(corsConfig))
 
 	e.POST("/api/create", controllers.CreatePaste)
