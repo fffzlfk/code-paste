@@ -14,16 +14,10 @@ import (
 
 type configs struct {
 	Server   serverConfig
-	Frontend frontendConfig
 	Database databaseConfig
 }
 
 type serverConfig struct {
-	Port int
-}
-
-type frontendConfig struct {
-	Host string
 	Port int
 }
 
