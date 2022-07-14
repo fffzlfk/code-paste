@@ -1,9 +1,5 @@
 name: Test
 
-defaults:
-  run:
-    working-directory: web
-
 on:
   push:
     branches:
@@ -14,6 +10,7 @@ on:
       - main
 
 jobs:
+  working-directory: web
   build:
     runs-on: ${{ matrix.os }}
 
