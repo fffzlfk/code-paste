@@ -10,7 +10,6 @@ on:
       - main
 
 jobs:
-  working-directory: web
   build:
     runs-on: ${{ matrix.os }}
 
@@ -34,15 +33,20 @@ jobs:
 
       - name: Install
         run: pnpm i
+        working-directory: web
 
       - name: Build
         run: pnpm run build
+        working-directory: web
 
       - name: Test
         run: pnpm run test
+        working-directory: web
 
       - name: Lint
         run: pnpm run lint
+        working-directory: web
 
       - name: TypeCheck
         run: pnpm run typecheck
+        working-directory: web
