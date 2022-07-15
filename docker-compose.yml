@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mydb:
+    restart: always
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: '114514'
+      MYSQL_DATABASE: code_paste
+    container_name: mydb
+    ports:
+      - "3306:3306"
+    tty: true
+  server:
+    build:
+      context: ./server
+    container_name: server
+    ports:
+      - "8080:8080"
+    tty: true
+    depends_on:
+      - mydb
+  web:
+    build:
+      context: ./web
+    container_name: web
+    ports:
+      - "80:3000"
+    tty: true
+    depends_on:
+      - server
+  

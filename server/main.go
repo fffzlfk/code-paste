@@ -25,6 +25,7 @@ type databaseConfig struct {
 	Host     string
 	User     string
 	Password string
+	Port     int
 }
 
 func main() {
@@ -33,7 +34,7 @@ func main() {
 
 	logFile, _ := os.Create("log.txt")
 
-	database.Init(logFile, config.Database.Host, config.Database.User, config.Database.Password)
+	database.Init(logFile, config.Database.Host, config.Database.User, config.Database.Password, config.Database.Port)
 
 	cron.Start()
 

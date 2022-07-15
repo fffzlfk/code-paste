@@ -14,8 +14,8 @@ import (
 
 var DB *gorm.DB
 
-func Init(logFile *os.File, host, user, password string) {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s)/code_paste?charset=utf8&parseTime=True&loc=Local", user, password, host)
+func Init(logFile *os.File, host, user, password string, port int) {
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/code_paste?charset=utf8&parseTime=True&loc=Local", user, password, host, port)
 	newLogger := logger.New(
 		log.New(logFile, "\r\n", log.LstdFlags),
 		logger.Config{
