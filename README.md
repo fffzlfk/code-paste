@@ -1,1 +1,3 @@
-# code-paste-backend
+# code-paste
+
+A code paste tool.
