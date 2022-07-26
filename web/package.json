@@ -42,7 +42,7 @@
     "vite": "^2.9.13",
     "vite-plugin-pages": "^0.25.0",
     "vitest": "^0.19.1",
-    "vue-tsc": "^0.38.2"
+    "vue-tsc": "^0.39.0"
   },
   "eslintConfig": {
     "extends": "@antfu"
