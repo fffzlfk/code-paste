@@ -1,8 +1,9 @@
-name: node.js Test
+name: Node Test
 
 defaults:
   run:
     working-directory: web
+
 on:
   push:
     branches:
