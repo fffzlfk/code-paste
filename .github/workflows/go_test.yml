@@ -1,5 +1,8 @@
 name: Go Test
 
+defaults:
+  run:
+    working-directory: server
 on:
   push:
     branches: [ main ]
@@ -17,8 +20,5 @@ jobs:
     - uses: actions/setup-go@v3
       with:
         go-version: ${{ matrix.go-version }}
-      working-directory: ./server
     - uses: actions/checkout@v3
-      working-directory: ./server
     - run: go test ./...
-      working-directory: ./server
