@@ -7,11 +7,13 @@ on:
   pull_request:
     branches:
       - main
+
+defaults:
+  run:
+    working-directory: ./server
+
 jobs:
   test:
-    defaults:
-      run:
-        working-directory: ./server
     strategy:
       matrix:
         go-version: [1.18.x]
