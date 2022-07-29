@@ -1,9 +1,5 @@
 name: node.js Test
 
-defaults:
-  run:
-    working-directory: web
-
 on:
   push:
     branches:
@@ -15,6 +11,10 @@ on:
 
 jobs:
   build:
+    defaults:
+      run:
+        working-directory: ./web
+
     runs-on: ${{ matrix.os }}
 
     timeout-minutes: 10
