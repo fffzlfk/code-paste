@@ -19,7 +19,7 @@
     "@codemirror/lang-python": "^6.0.0",
     "@codemirror/lang-rust": "^6.0.0",
     "@codemirror/theme-one-dark": "^6.0.0",
-    "@vueuse/core": "^8.7.5",
+    "@vueuse/core": "^9.0.2",
     "codemirror": "^6.0.1",
     "vue": "^3.2.37",
     "vue-codemirror": "^6.0.0",
