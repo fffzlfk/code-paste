@@ -4,7 +4,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite --port 3333 --open",
-    "lint": "eslint .",
+    "lint": "eslint",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest"
@@ -13,38 +13,34 @@
     "@codemirror/lang-cpp": "^6.0.1",
     "@codemirror/lang-html": "^6.1.0",
     "@codemirror/lang-java": "^6.0.0",
-    "@codemirror/lang-javascript": "^6.0.1",
+    "@codemirror/lang-javascript": "^6.0.2",
     "@codemirror/lang-json": "^6.0.0",
-    "@codemirror/lang-markdown": "^6.0.0",
-    "@codemirror/lang-python": "^6.0.0",
+    "@codemirror/lang-markdown": "^6.0.1",
+    "@codemirror/lang-python": "^6.0.1",
     "@codemirror/lang-rust": "^6.0.0",
     "@codemirror/theme-one-dark": "^6.0.0",
-    "@vueuse/core": "^9.0.2",
+    "@vueuse/core": "^9.1.0",
     "codemirror": "^6.0.1",
     "vue": "^3.2.37",
-    "vue-codemirror": "^6.0.0",
-    "vue-router": "^4.0.16"
+    "vue-codemirror": "^6.0.2",
+    "vue-router": "^4.1.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.0",
-    "@iconify-json/carbon": "^1.1.6",
-    "@types/node": "^18.0.0",
-    "@unocss/reset": "^0.45.1",
+    "@iconify-json/carbon": "^1.1.7",
+    "@types/node": "^18.6.5",
+    "@unocss/reset": "^0.45.5",
     "@vitejs/plugin-vue": "^2.3.3",
-    "@vue/test-utils": "^2.0.1",
-    "eslint": "^8.18.0",
+    "@vue/test-utils": "^2.0.2",
+    "eslint": "^8.21.0",
     "jsdom": "^20.0.0",
-    "pnpm": "^7.4.0",
+    "pnpm": "^7.9.0",
     "typescript": "^4.7.4",
-    "unocss": "^0.45.1",
+    "unocss": "^0.45.5",
     "unplugin-auto-import": "^0.11.1",
-    "unplugin-vue-components": "^0.21.1",
-    "vite": "^2.9.13",
+    "unplugin-vue-components": "^0.21.2",
+    "vite": "^2.9.14",
     "vite-plugin-pages": "^0.25.0",
-    "vitest": "^0.21.0",
-    "vue-tsc": "^0.39.0"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
+    "vitest": "^0.21.1",
+    "vue-tsc": "^0.39.5"
   }
 }
