@@ -19,7 +19,7 @@ if (languagesFunction)
 </script>
 
 <template>
-  <codemirror
+  <Codemirror
     :model-value="paste.data"
     placeholder="Code goes here..."
     :style="{ height: '400px', width: '900px', textAlign: 'left' }"
