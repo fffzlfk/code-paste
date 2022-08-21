@@ -7,5 +7,3 @@ export const cmOptions = {
   foldGutter: true, // Code folding
   styleActiveLine: true, // Display the style of the selected row
 }
-
-export const BASE_URL = 'http://localhost:8080/api'

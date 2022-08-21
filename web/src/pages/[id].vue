@@ -8,7 +8,7 @@ let paste = $ref({} as Paste)
 const router = useRouter()
 
 function fetchPaste(id: string) {
-  fetch(`${BASE_URL}/read/${id}`)
+  fetch(`${import.meta.env.VITE_BASE_URL}/read/${id}`)
     .then(res => res.json())
     .then((res) => {
       paste = res
