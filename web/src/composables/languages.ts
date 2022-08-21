@@ -7,7 +7,7 @@ import { java } from '@codemirror/lang-java'
 import { python } from '@codemirror/lang-python'
 import { markdown } from '@codemirror/lang-markdown'
 
-export const languages = {
+export const languages = new Map(Object.entries({
   'JavaScript': javascript(),
   'HTML': html(),
   'JSON': json(),
@@ -17,5 +17,5 @@ export const languages = {
   'Python': python(),
   'Markdown': markdown(),
   'Text': undefined,
-}
+}))
 

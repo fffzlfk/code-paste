@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Paste } from '~/composables/types'
 
-const types = Object.keys(languages)
+const types = Array.from(languages.keys())
 
 const expired_days_dict = {
   '1 Day': 1,
@@ -20,7 +20,7 @@ function setCode(code: string) {
 const router = useRouter()
 
 function onPaste() {
-  fetch(`${BASE_URL}/create`, {
+  fetch(`${import.meta.env.VITE_BASE_URL}/create`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
