@@ -11,23 +11,19 @@ function setCode(code: string) {
   emits('setCode', code)
 }
 
-const languagesFunction = languages[paste.type as keyof typeof languages]
-const extensions = [oneDark]
-
-if (languagesFunction)
-  extensions.push(languagesFunction)
+const extensions = $computed(() => {
+  const languagesFunction = languages.get(paste.type)
+  const extensions = [oneDark]
+  if (languagesFunction)
+    extensions.push(languagesFunction)
+  return extensions
+})
 </script>
 
 <template>
-  <Codemirror
-    :model-value="paste.data"
-    placeholder="Code goes here..."
-    :style="{ height: '400px', width: '900px', textAlign: 'left' }"
-    :autofocus="true"
-    :indent-with-tab="true"
-    :tab-size="2"
-    :extensions="extensions"
-    @change="setCode"
-  />
+  {{ paste }}
+  <Codemirror :model-value="paste.data" placeholder="Code goes here..."
+    :style="{ height: '400px', width: '900px', textAlign: 'left' }" :autofocus="true" :indent-with-tab="true"
+    :tab-size="2" :extensions="extensions" @change="setCode" />
 </template>
 
