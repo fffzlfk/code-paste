@@ -21,7 +21,6 @@ const extensions = $computed(() => {
 </script>
 
 <template>
-  {{ paste }}
   <Codemirror :model-value="paste.data" placeholder="Code goes here..."
     :style="{ height: '400px', width: '900px', textAlign: 'left' }" :autofocus="true" :indent-with-tab="true"
     :tab-size="2" :extensions="extensions" @change="setCode" />
