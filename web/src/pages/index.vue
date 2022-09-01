@@ -3,13 +3,11 @@ import type { Paste } from '~/composables/types'
 
 const types = Array.from(languages.keys())
 
-const expired_days_dict = {
+const expiredDaysOptions = {
   '1 Day': 1,
   '1 Week': 7,
   '1 Month': 30,
 }
-
-const expired_days = $ref('1 Week')
 
 const paste = $ref({ expired_days: 7, type: 'Text' } as Paste)
 
@@ -36,10 +34,6 @@ function onPaste() {
       console.error(err)
     })
 }
-
-function onChange() {
-  paste.expired_days = expired_days_dict[expired_days as keyof typeof expired_days_dict]
-}
 </script>
 
 <template>
@@ -54,8 +48,10 @@ function onChange() {
         </span>
         <span>
           Expired Days:
-          <select rounded-md class="bg-gray-200/50 text-gray-800/90" v-model="expired_days" @change="onChange">
-            <option class="text-gray-800/80" v-for="x in Object.keys(expired_days_dict)" :key="x">{{  x  }}</option>
+          <select rounded-md class="bg-gray-200/50 text-gray-800/90" v-model="paste.expired_days">
+            <option class="text-gray-800/80" v-for="[k, v] in Object.entries(expiredDaysOptions)" :key="k" :value="v">{{
+               k  }}
+            </option>
           </select>
         </span>
       </div>

@@ -106,6 +106,7 @@ declare global {
   const tryOnUnmounted: typeof import('@vueuse/core')['tryOnUnmounted']
   const unref: typeof import('vue')['unref']
   const unrefElement: typeof import('@vueuse/core')['unrefElement']
+  const unsecuredCopyToClipboard: typeof import('./src/composables/utils')['unsecuredCopyToClipboard']
   const until: typeof import('@vueuse/core')['until']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useArrayEvery: typeof import('@vueuse/core')['useArrayEvery']
@@ -379,6 +380,7 @@ declare module '@vue/runtime-core' {
     readonly tryOnUnmounted: UnwrapRef<typeof import('@vueuse/core')['tryOnUnmounted']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
+    readonly unsecuredCopyToClipboard: UnwrapRef<typeof import('./src/composables/utils')['unsecuredCopyToClipboard']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useArrayEvery: UnwrapRef<typeof import('@vueuse/core')['useArrayEvery']>
