@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Paste } from '~/composables/types'
+import { unsecuredCopyToClipboard } from '~/composables/utils';
 
 const { id } = defineProps<{ id: string }>()
 
@@ -19,6 +20,16 @@ function fetchPaste(id: string) {
     })
 }
 
+function copyToClipboard() {
+  const content = paste.data
+  if (window.isSecureContext && navigator.clipboard) {
+    navigator.clipboard.writeText(content)
+  } else {
+    unsecuredCopyToClipboard(content);
+  }
+  alert('Successfully copied to clipboard!')
+}
+
 onMounted(() => {
   fetchPaste(id)
 })
@@ -35,14 +46,15 @@ onMounted(() => {
           </select>
         </span>
         <span>
-          ExpiredAt
+          ExpiredAt:
           <select rounded-md class="bg-gray-200/50 text-gray-800/90" disabled>
             <option class="text-gray-800/80" value="UTC2Local(paste.expired_at)">{{  UTC2Local(paste.expired_at)  }}
             </option>
           </select>
         </span>
       </div>
+      <button btn @click="copyToClipboard()">copy</button>
     </div>
-    <CodeEditor :paste="paste" :readonly="true"/>
+    <CodeEditor :paste="paste" :readonly="true" />
   </div>
 </template>
