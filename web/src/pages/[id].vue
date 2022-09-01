@@ -27,15 +27,22 @@ onMounted(() => {
 <template>
   <div flex="~" flex-col items-center justify-center>
     <div flex="~" flex-row items-center justify-center space-x-5 pb-5>
-      <span>Type:
-        <select disabled>
-          <option value="paste.type">{{ paste.type }}</option>
-        </select>
-      </span>
-      <span>ExpiredAt:
-        {{ UTC2Local(paste.expired_at) }}
-      </span>
+      <div text-lg font-mono font-bold>
+        <span>
+          Type:
+          <select rounded-md class="bg-gray-200/50 text-gray-800/90" disabled>
+            <option class="text-gray-800/80" value="paste.type">{{  paste.type  }}</option>
+          </select>
+        </span>
+        <span>
+          ExpiredAt
+          <select rounded-md class="bg-gray-200/50 text-gray-800/90" disabled>
+            <option class="text-gray-800/80" value="UTC2Local(paste.expired_at)">{{  UTC2Local(paste.expired_at)  }}
+            </option>
+          </select>
+        </span>
+      </div>
     </div>
-    <CodeEditor :paste="paste" />
+    <CodeEditor :paste="paste" :readonly="true"/>
   </div>
 </template>

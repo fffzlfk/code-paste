@@ -28,7 +28,7 @@ function onPaste() {
     body: JSON.stringify(paste),
   })
     .then(res => res.json(),
-    )
+  )
     .then((res) => {
       router.push(`/${res.uuid}`)
     })
@@ -45,22 +45,24 @@ function onChange() {
 <template>
   <div flex="~" flex-col items-center justify-center>
     <div flex="~" flex-row items-center justify-center space-x-5 pb-5>
-      <span>
-        Type:
-        <select v-model="paste.type">
-          <option v-for="type in types" :key="type" :value="type">{{ type }}</option>
-        </select>
-      </span>
-      <span>
-        Expired Days:
-        <select v-model="expired_days" @change="onChange">
-          <option v-for="x in Object.keys(expired_days_dict)" :key="x">{{ x }}</option>
-        </select>
-      </span>
+      <div text-lg font-mono font-bold>
+        <span>
+          Type:
+          <select rounded-md class="bg-gray-200/50 text-gray-800/90" v-model="paste.type">
+            <option class="text-gray-800/80" v-for="type in types" :key="type" :value="type">{{  type  }}</option>
+          </select>
+        </span>
+        <span>
+          Expired Days:
+          <select rounded-md class="bg-gray-200/50 text-gray-800/90" v-model="expired_days" @change="onChange">
+            <option class="text-gray-800/80" v-for="x in Object.keys(expired_days_dict)" :key="x">{{  x  }}</option>
+          </select>
+        </span>
+      </div>
       <button btn @click="onPaste">
         paste
       </button>
     </div>
-    <CodeEditor :paste="paste" @set-code="setCode" />
+    <CodeEditor :paste="paste" :readonly="false" @set-code="setCode" />
   </div>
 </template>
