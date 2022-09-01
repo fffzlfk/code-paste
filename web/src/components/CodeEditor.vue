@@ -4,7 +4,7 @@ import { Codemirror } from 'vue-codemirror'
 import { oneDark } from '@codemirror/theme-one-dark'
 import type { Paste } from '~/composables/types'
 
-const { paste } = defineProps<{ paste: Paste }>()
+const { paste } = defineProps<{ paste: Paste, readonly: boolean }>()
 const emits = defineEmits(['setCode', 'setType', 'setExpiredDays'])
 
 function setCode(code: string) {
@@ -21,7 +21,7 @@ const extensions = $computed(() => {
 </script>
 
 <template>
-  <Codemirror :model-value="paste.data" placeholder="Code goes here..."
+  <Codemirror :model-value="paste.data" :disabled="readonly" placeholder="Code goes here..."
     :style="{ height: '400px', width: '900px', textAlign: 'left' }" :autofocus="true" :indent-with-tab="true"
     :tab-size="2" :extensions="extensions" @change="setCode" />
 </template>

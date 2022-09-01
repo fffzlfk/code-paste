@@ -21,13 +21,13 @@
     "@codemirror/theme-one-dark": "^6.0.0",
     "@vueuse/core": "^9.1.1",
     "codemirror": "^6.0.1",
-    "vue": "^3.2.37",
+    "vue": "^3.2.38",
     "vue-codemirror": "^6.1.1",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.7",
-    "@types/node": "^18.7.13",
+    "@types/node": "^18.7.14",
     "@unocss/reset": "^0.45.13",
     "@vitejs/plugin-vue": "^2.3.4",
     "@vue/test-utils": "^2.0.2",
