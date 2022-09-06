@@ -14,10 +14,14 @@ import (
 
 var DB *gorm.DB
 
-func Init(logFile *os.File, host, user, password string, port int) {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/code_paste?charset=utf8&parseTime=True&loc=Local", user, password, host, port)
+func Init() {
+	host := os.Getenv("DATABASE_HOST")
+	user := os.Getenv("DATABASE_USER")
+	password := os.Getenv("DATABASE_PASSWORD")
+	port := os.Getenv("DATABASE_PORT")
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/code_paste?charset=utf8&parseTime=True&loc=Local", user, password, host, port)
 	newLogger := logger.New(
-		log.New(logFile, "\r\n", log.LstdFlags),
+		log.New(os.Stdout, "\r\n", log.LstdFlags),
 		logger.Config{
 			SlowThreshold: time.Second,
 			LogLevel:      logger.Silent,
