@@ -15,7 +15,6 @@ import (
 )
 
 func main() {
-
 	database.Init()
 
 	cron.Start()
