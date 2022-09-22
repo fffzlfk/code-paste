@@ -7,11 +7,11 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/google/uuid"
+	"github.com/lithammer/shortuuid/v4"
 )
 
 func generateUUID() string {
-	return uuid.New().String()
+	return shortuuid.New()
 }
 
 func CreatePaste(c *gin.Context) {
