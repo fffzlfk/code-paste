@@ -7,6 +7,13 @@ import type { Paste } from '~/composables/types'
 const { paste } = defineProps<{ paste: Paste, readonly: boolean }>()
 const emits = defineEmits(['setCode', 'setType', 'setExpiredDays'])
 
+console.log(window.innerHeight)
+const style = {
+  width: '80%',
+  height: '75vh',
+  textAlign: 'left'
+}
+
 function setCode(code: string) {
   emits('setCode', code)
 }
@@ -22,7 +29,7 @@ const extensions = $computed(() => {
 
 <template>
   <Codemirror :model-value="paste.data" :disabled="readonly" placeholder="Code goes here..."
-    :style="{ height: '400px', width: '900px', textAlign: 'left' }" :autofocus="true" :indent-with-tab="true"
+    :style="style" :autofocus="true" :indent-with-tab="true"
     :tab-size="2" :extensions="extensions" @change="setCode" />
 </template>
 
