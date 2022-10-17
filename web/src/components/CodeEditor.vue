@@ -22,7 +22,7 @@ const extensions = $computed(() => {
 
 <template>
   <Codemirror :model-value="paste.data" :disabled="readonly" placeholder="Code goes here..."
-    :style="{ height: '400px', width: '900px', textAlign: 'left' }" :autofocus="true" :indent-with-tab="true"
+    :style="{ width: '80%', height: '75vh', textAlign: 'left'}" :autofocus="true" :indent-with-tab="true"
     :tab-size="2" :extensions="extensions" @change="setCode" />
 </template>
 
